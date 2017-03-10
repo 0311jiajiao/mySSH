@@ -11,7 +11,7 @@ import java.util.Date;
  * @User : Y
  */
 public class Employee {
-	private int id;
+	private Integer id;
 	private String name;
 	private String email;
 	private Date hiredate;
@@ -27,8 +27,7 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public Employee(int id, String name, String email, Date hiredate, Float salary) {
-		super();
+	public Employee(Integer id, String name, String email, Date hiredate, Float salary) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -36,11 +35,11 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

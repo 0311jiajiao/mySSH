@@ -4,8 +4,8 @@
 <hibernate-mapping package="com.sinolink.domain">
 	<class name="Employee" table="employee">
 		<!-- 主键生成策略 -->
-		<id name="id" type="int">
-			<generator class="uuid" />
+		<id name="id" type="java.lang.Integer">
+			<generator class="native" />
 		</id>
 		<property name="email" type="java.lang.String">
 			<column name="email" length="64" />

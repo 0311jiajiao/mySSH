@@ -1,1 +1,41 @@
-没整合一个框架，就写一个测试类。
+每整合一个框架，就写一个测试类。
+
+
+刚开始一直报错，Exception in thread "main" org.hibernate.exception.SQLGrammarException: 
+	could not get next sequence value
+	Unknown table 'hibernate_sequence' in field list
+
+是因为Spring在配置数据库的时候，使用的方法是Oracle的，所以报错，
+	hibernate.dialect=org.hibernate.dialect.OracleDialect
+
+然后切换成了MySQL的数据库方言就可以了。
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+
+Hibernate 数据库方言
+
+数据库
+hibernate方言
+DB2						org.hibernate.dialect.DB2Dialect
+DB2 AS/400				org.hibernate.dialect.DB2400Dialect
+DB2 OS390				org.hibernate.dialect.DB2390Dialect
+MySQL					org.hibernate.dialect.MySQLDialect
+MySQL with InnoDB		org.hibernate.dialect.MySQLInnoDBDialect
+MySQL with MyISAM		org.hibernate.dialect.MySQLMyISAMDialect
+Oracle (any version)	org.hibernate.dialect.OracleDialect
+Oracle 9i/10g			org.hibernate.dialect.Oracle9Dialect
+Microsoft SQL Server	org.hibernate.dialect.SQLServerDialect
+
+Sybase					org.hibernate.dialect.SybaseDialect
+Sybase Anywhere			org.hibernate.dialect.SybaseAnywhereDialect
+PostgreSQL				org.hibernate.dialect.PostgreSQLDialect
+SAP DB					org.hibernate.dialect.SAPDBDialect
+Informix				org.hibernate.dialect.InformixDialect
+HypersonicSQL			org.hibernate.dialect.HSQLDialect
+Ingres					org.hibernate.dialect.IngresDialect
+Progress				org.hibernate.dialect.ProgressDialect
+Mckoi SQL				org.hibernate.dialect.MckoiDialect
+Interbase				org.hibernate.dialect.InterbaseDialect
+Pointbase	org.hibernate.dialect.PointbaseDialect
+FrontBase	org.hibernate.dialect.FrontbaseDialect
+Firebird	org.hibernate.dialect.FirebirdDialect
