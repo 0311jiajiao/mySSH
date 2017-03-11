@@ -62,5 +62,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-
+	<!-- 配置事物管理，统一管理sessionFactory的事物 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 开启事物注解 -->
+	<tx:annotation-driven transaction-manager="txManager" />
+	
 </beans>

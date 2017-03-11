@@ -2,10 +2,8 @@ package com.sinolink.service.impl;
 
 import java.util.List;
 
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sinolink.domain.Employee;
 import com.sinolink.service.interfaces.EmployeeServiceInter;
@@ -17,24 +15,30 @@ import com.sinolink.service.interfaces.EmployeeServiceInter;
  * @Version : 1.0
  * @User : Y
  */
+@Transactional
 public class EmployeeServiceImpl implements EmployeeServiceInter {
 
 	private SessionFactory sessionFactory;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+		
 	}
 
 	@Override
 	public void addEmployee(Employee e) {
-		Session session = sessionFactory.openSession();
-		Transaction ts = (Transaction) session.beginTransaction();
-		session.save(e);
-		try {
-			ts.commit();
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+		/*
+		    //每个函数自定义事物
+			Session session = sessionFactory.openSession();
+			Transaction ts = (Transaction) session.beginTransaction();
+			session.save(e);
+			try {
+				ts.commit();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		 */		
+		sessionFactory.getCurrentSession().save(e);
 	}
 
 	@Override
