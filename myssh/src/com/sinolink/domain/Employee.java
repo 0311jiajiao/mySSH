@@ -13,6 +13,8 @@ import java.util.Date;
 public class Employee {
 	private Integer id;
 	private String name;
+	private String pwd;
+	private Integer grade;
 	private String email;
 	private Date hiredate;
 	private Float salary;
@@ -20,19 +22,30 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(String name, String email, Date hiredate, Float salary) {
+	public Employee(String name, String pwd, Integer grade, String email, Date hiredate, Float salary) {
 		this.name = name;
+		this.pwd = pwd;
+		this.grade = grade;
 		this.email = email;
 		this.hiredate = hiredate;
 		this.salary = salary;
 	}
 
-	public Employee(Integer id, String name, String email, Date hiredate, Float salary) {
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.hiredate = hiredate;
-		this.salary = salary;
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public Integer getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Integer grade) {
+		this.grade = grade;
 	}
 
 	public Integer getId() {

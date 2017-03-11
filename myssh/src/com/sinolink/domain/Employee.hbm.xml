@@ -13,6 +13,12 @@
 		<property name="name" type="java.lang.String">
 			<column name="name" length="64" />
 		</property>
+		<property name="pwd" type="java.lang.String">
+			<column name="pwd" length="64" />
+		</property>
+		<property name="grade" type="java.lang.Integer">
+			<column name="grade" />
+		</property>
 		<property name="hiredate" type="java.util.Date">
 			<column name="hiredate" />
 		</property>

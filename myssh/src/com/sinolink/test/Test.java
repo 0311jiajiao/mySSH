@@ -21,8 +21,7 @@ public class Test {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 		TestService test = (TestService) ac.getBean("testService");
 		System.out.println(test.getName());
-
-		Employee emp = new Employee("HSP", "122267840@qq.com", new Date(), 125.5f);
+		Employee emp = new Employee("HSddP", "pwd123", 11,"122267840@qq.com", new Date(), 125.5f);
 
 //		SessionFactory sessionFactory = (SessionFactory) ac.getBean("sessionFactory");
 //		Session session = sessionFactory.openSession();
