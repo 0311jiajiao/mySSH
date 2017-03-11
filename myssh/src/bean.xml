@@ -54,6 +54,10 @@
 			</value>
 		</property>
 	</bean>
+	
+	<bean id="employeeServiceImpl" class="com.sinolink.service.impl.EmployeeServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 
 </beans>

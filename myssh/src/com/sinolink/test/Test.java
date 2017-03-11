@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sinolink.domain.Employee;
+import com.sinolink.service.interfaces.EmployeeServiceInter;
 
 /**
  * @Title :
@@ -24,12 +25,15 @@ public class Test {
 		TestService test = (TestService) ac.getBean("testService");
 		System.out.println(test.getName());
 
-		Employee emp = new Employee("Mark", "1241467840@qq.com", new Date(), 125.5f);
+		Employee emp = new Employee("Mark222", "122267840@qq.com", new Date(), 125.5f);
 
-		SessionFactory sessionFactory = (SessionFactory) ac.getBean("sessionFactory");
-		Session session = sessionFactory.openSession();
-		Transaction ts = session.beginTransaction();
-		session.save(emp);
-		ts.commit();
+//		SessionFactory sessionFactory = (SessionFactory) ac.getBean("sessionFactory");
+//		Session session = sessionFactory.openSession();
+//		Transaction ts = session.beginTransaction();
+//		session.save(emp);
+//		ts.commit();
+		
+		EmployeeServiceInter employeeService = (EmployeeServiceInter)ac.getBean("employeeServiceImpl");
+		employeeService.addEmployee(emp);
 	}
 }
