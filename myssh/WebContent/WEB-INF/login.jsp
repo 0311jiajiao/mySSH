@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>管理员</h1>
-	<form action="/myssh/">
+	<form action="/myssh/login.do?flag=login" method="post">
 		<table>
 			<tr>
 				<td>id:</td>

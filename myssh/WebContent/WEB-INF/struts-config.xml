@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
-	<form-beans></form-beans>
-	<action-mappings></action-mappings>
+	<form-beans>
+		<form-bean name="employeeForm" type="com.sinolink.web.forms.EmployeeForm"></form-bean>
+	</form-beans>
+	<action-mappings>
+		<action path="/login" name="employeeForm" parameter="flag" type="com.sinolink.web.action.LoginAction">
+			<forward name="ok" path="/WEB-INF/mainForm.jsp"></forward>
+			<forward name="err" path="/WEB-INF/login.jsp"></forward>
+		</action>
+	</action-mappings>
 </struts-config>
