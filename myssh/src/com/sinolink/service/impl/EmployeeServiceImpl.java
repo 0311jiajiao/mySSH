@@ -65,4 +65,15 @@ public class EmployeeServiceImpl implements EmployeeServiceInter {
 		return null;
 	}
 
+	@Override
+	public Employee checkEmployee(Employee emp) {
+		String hpl = "from Employee where id=? and pwd=?";
+		List<Employee> lists = sessionFactory.getCurrentSession().createQuery(hpl)
+			.setString(0, emp.getId()+"").setString(1, emp.getPwd()).list();
+		if(lists.size() == 1) {
+			return lists.get(0);
+		}
+		return null;
+	}
+
 }

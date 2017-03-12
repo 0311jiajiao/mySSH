@@ -23,4 +23,6 @@ public interface EmployeeServiceInter {
 	public void updateEmployee(Employee e);
 
 	public Employee findEmployeeById(Integer id);
+	
+	public Employee checkEmployee(Employee emp);
 }
