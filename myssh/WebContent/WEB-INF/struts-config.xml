@@ -5,9 +5,16 @@
 		<form-bean name="employeeForm" type="com.sinolink.web.forms.EmployeeForm"></form-bean>
 	</form-beans>
 	<action-mappings>
-		<action path="/login" name="employeeForm" parameter="flag" type="com.sinolink.web.action.LoginAction">
+		<action path="/login" name="employeeForm" parameter="flag" >
 			<forward name="ok" path="/WEB-INF/mainForm.jsp"></forward>
 			<forward name="err" path="/WEB-INF/login.jsp"></forward>
 		</action>
 	</action-mappings>
+	
+	<!--  配置代理请求，用途是： -->
+	<controller>
+		<set-property property="processorClass" value="org.springframework.web.struts.DelegatingRequestProcessor" />
+	</controller>
+	
+	
 </struts-config>

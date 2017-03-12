@@ -7,8 +7,6 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.sinolink.domain.Employee;
 import com.sinolink.service.interfaces.EmployeeServiceInter;
@@ -23,6 +21,13 @@ import com.sinolink.web.forms.EmployeeForm;
  * @User : Y
  */
 public class LoginAction extends DispatchAction {
+	private EmployeeServiceInter employeeService;
+	
+	public void setEmployeeService(EmployeeServiceInter employeeService) {
+		System.out.println("setEmployeeServiceInter 被调用");
+		this.employeeService= employeeService;
+	}
+
 	// 响应登陆请求
 	public ActionForward login(ActionMapping arg0, ActionForm arg1, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -30,16 +35,22 @@ public class LoginAction extends DispatchAction {
 		String id = employeeForm.getId();
 		String pwd = employeeForm.getPwd();
 		System.out.println(" ***  "+id +" ---- "+ pwd);
-		//获取Spring容器
-		WebApplicationContext wac = WebApplicationContextUtils.getWebApplicationContext(this.getServlet().getServletContext());
-		EmployeeServiceInter employeeServiceInter = (EmployeeServiceInter)wac.getBean("employeeServiceImpl");
-		Employee e = new Employee();
-		e.setId(Integer.valueOf(id));
-		e.setPwd(pwd);
-		e = employeeServiceInter.checkEmployee(e);
+		/* action未整合进Spring容器之前
+			//获取Spring容器
+			WebApplicationContext wac = WebApplicationContextUtils.getWebApplicationContext(this.getServlet().getServletContext());
+			EmployeeServiceInter employeeServiceInter = (EmployeeServiceInter)wac.getBean("employeeServiceImpl");
+			Employee e = new Employee();
+			e.setId(Integer.valueOf(id));
+			e.setPwd(pwd);
+			e = employeeServiceInter.checkEmployee(e);
+		*/
+		Employee emp = new Employee();
+		emp.setId(Integer.valueOf(id));
+		emp.setPwd(pwd);
+		emp = employeeService.checkEmployee(emp);
 
-		if(e != null) {
-			request.getSession().setAttribute("loginUser", e);
+		if(emp != null) {
+			request.getSession().setAttribute("loginUser", emp);
 			return arg0.findForward("ok");
 		} else {
 			return arg0.findForward("err");

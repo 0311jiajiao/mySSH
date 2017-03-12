@@ -62,6 +62,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<!-- 配置action的bean -->
+	<bean name="/login" scope="prototype" class="com.sinolink.web.action.LoginAction" >
+	<property name="employeeService" ref="employeeServiceImpl" />
+	</bean>
+	
 	<!-- 配置事物管理，统一管理sessionFactory的事物 -->
 	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
