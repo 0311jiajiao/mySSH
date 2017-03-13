@@ -43,6 +43,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/sinolink/domain/Employee.hbm.xml</value>
+				<value>com/sinolink/domain/Department.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -65,6 +66,11 @@
 	 -->
 	<!-- 通过注解的方式来配置EmployeeService 对象 -->
 	<bean id="employeeServiceImpl" class="com.sinolink.service.impl.EmployeeServiceImpl" />
+
+	<!-- 通过注解的方式来配置DepartmentService 对象 -->
+	<bean id="departmentServiceImpl" class="com.sinolink.service.impl.DepartmentServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	<!-- 开启注解方式进行扫描 -->
 	<context:annotation-config />
 

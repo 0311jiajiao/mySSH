@@ -1,4 +1,6 @@
-D:\ABCDE\视屏教程\SSH框架视屏\spring\韩顺平.2011版.spring视频教程.第23讲.雇员管理系统-SSH版(六).wmv
+D:\ABCDE\视屏教程\SSH框架视屏\spring\韩顺平.2011版.spring视频教程.第23讲.雇员管理系统-SSH版(六).wmv 
+53min
+
 每整合一个框架，就写一个测试类。
 
 

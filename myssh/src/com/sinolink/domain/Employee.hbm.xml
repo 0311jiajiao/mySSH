@@ -25,5 +25,10 @@
 		<property name="salary" type="java.lang.Float">
 			<column name="salary" />
 		</property>
+		
+		<!-- 一个雇员属于一个部门，但是一个部门有多个雇员， 因此关系是   多对一 -->
+		<many-to-one name="depart" column="depart_id" />
+		
+		
 	</class>
 </hibernate-mapping>

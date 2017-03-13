@@ -19,6 +19,16 @@ public class Employee {
 	private Date hiredate;
 	private Float salary;
 
+	private Department depart;
+
+	public Department getDepart() {
+		return depart;
+	}
+
+	public void setDepart(Department depart) {
+		this.depart = depart;
+	}
+
 	public Employee() {
 	}
 
@@ -30,7 +40,6 @@ public class Employee {
 		this.hiredate = hiredate;
 		this.salary = salary;
 	}
-
 
 	public String getPwd() {
 		return pwd;
@@ -90,8 +99,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", hiredate=" + hiredate + ", salary="
-				+ salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", pwd=" + pwd + ", grade=" + grade + ", email=" + email
+				+ ", hiredate=" + hiredate + ", salary=" + salary + ", depart=" + depart + "]";
 	}
 
 }
