@@ -58,9 +58,15 @@
 		</property>
 	</bean>
 	
+	<!-- 配置EmployeeService对象
 	<bean id="employeeServiceImpl" class="com.sinolink.service.impl.EmployeeServiceImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	 -->
+	<!-- 通过注解的方式来配置EmployeeService 对象 -->
+	<bean id="employeeServiceImpl" class="com.sinolink.service.impl.EmployeeServiceImpl" />
+	<!-- 开启注解方式进行扫描 -->
+	<context:annotation-config />
 
 	<!-- 配置action的bean -->
 	<bean name="/login" scope="prototype" class="com.sinolink.web.action.LoginAction" >

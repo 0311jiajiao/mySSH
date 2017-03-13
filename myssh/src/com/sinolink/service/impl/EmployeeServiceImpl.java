@@ -2,6 +2,8 @@ package com.sinolink.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,8 @@ import com.sinolink.service.interfaces.EmployeeServiceInter;
 @Transactional
 public class EmployeeServiceImpl implements EmployeeServiceInter {
 
+	//当我们给某个属性，增加了@Resource之后，那Spring就会启用byName的方式，注入属性值。
+	@Resource
 	private SessionFactory sessionFactory;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
