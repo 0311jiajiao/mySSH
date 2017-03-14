@@ -40,7 +40,12 @@ public class EmployeeServiceImpl implements EmployeeServiceInter {
 		 * session.save(e); try { ts.commit(); } catch (Exception e1) {
 		 * e1.printStackTrace(); }
 		 */
-		sessionFactory.getCurrentSession().save(e);
+		try {
+			sessionFactory.getCurrentSession().save(e);
+		} catch (Exception e2) {
+			e2.printStackTrace();
+			System.out.println("运行时异常...com.sinolink.service.impl.EmployeeServiceImpl.addEmployee(Employee)");
+		}
 	}
 
 	@Override

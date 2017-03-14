@@ -53,8 +53,7 @@ public class DepartmentServiceImpl implements DepartmentServiceInter {
 
 	@Override
 	public Department findDepartmentById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Department) sessionFactory.getCurrentSession().get(Department.class, id);
 	}
 
 }
