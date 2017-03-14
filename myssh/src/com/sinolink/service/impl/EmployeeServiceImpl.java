@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sinolink.domain.Department;
 import com.sinolink.domain.Employee;
 import com.sinolink.service.interfaces.EmployeeServiceInter;
 
@@ -70,6 +72,10 @@ public class EmployeeServiceImpl implements EmployeeServiceInter {
 		String hpl = "from Employee where id=? and pwd=?";
 		List<Employee> lists = sessionFactory.getCurrentSession().createQuery(hpl).setString(0, emp.getId() + "")
 				.setString(1, emp.getPwd()).list();
+		/*
+		//显性初始化   解决懒加载问题，还有两种方法
+		Hibernate.initialize(Department.class);//select 预先查询
+		*/
 		if (lists.size() == 1) {
 			return lists.get(0);
 		}

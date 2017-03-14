@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.sinolink.domain">
-	<class name="Department" table="department">
+	<class name="Department" table="department"><!--  lazy="false"   解决懒加载问题，还有两种方法 -->
 		<cache usage="read-write" />
 		<!-- 主键生成策略 -->
 		<id name="id" type="java.lang.Integer">
