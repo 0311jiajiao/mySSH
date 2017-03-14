@@ -1,6 +1,9 @@
 D:\ABCDE\视屏教程\SSH框架视屏\spring\韩顺平.2011版.spring视频教程.第23讲.雇员管理系统-SSH版(六).wmv 
 53min
 
+SSM整合：https://github.com/liyifeng1994/ssm
+博客地址：http://blog.csdn.net/qq598535550/article/details/51703190
+
 每整合一个框架，就写一个测试类。
 
 
